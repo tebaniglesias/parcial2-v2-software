@@ -3,6 +3,7 @@
 Aplicación web estática para el control de stock (HTML, CSS y JavaScript).
 
 **Autor:** Carlos Esteban Iglesias
+**Fecha:** 18/11/2026
 
 ## Contenido del proyecto
 

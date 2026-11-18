@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StockControl - Gestión de inventario</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <h1>📦 Bienvenido a StockControl</h1>
+    <p>Administra tu inventario de forma simple: agrega productos, ajusta cantidades y detecta rápidamente lo que se está agotando.</p>
+    <div class="stats">
+      <div><strong id="stat-total">0</strong><span>Productos</span></div>
+      <div><strong id="stat-units">0</strong><span>Unidades</span></div>
+      <div><strong id="stat-low">0</strong><span>Stock bajo</span></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Agregar producto</h2>
+      <form id="form">
+        <input id="name" type="text" placeholder="Nombre del producto" required maxlength="60">
+        <input id="qty" type="number" min="0" value="1" required aria-label="Cantidad">
+        <button type="submit">Agregar</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="list-head">
+        <h2>Inventario</h2>
+        <input id="search" type="search" placeholder="Buscar...">
+      </div>
+      <ul id="list"></ul>
+      <p id="empty" class="empty" hidden>No hay productos para mostrar.</p>
+    </section>
+  </main>
+
+  <footer>Parcial 2 · Ingeniería de Software</footer>
+  <script src="app.js"></script>
+</body>
+</html>
