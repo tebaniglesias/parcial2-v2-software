@@ -95,4 +95,27 @@ form.addEventListener("submit", (e) => {
 });
 
 search.addEventListener("input", render);
+
+// Modo oscuro
+const THEME_KEY = "stockcontrol-theme";
+const themeBtn = $("theme-toggle");
+
+function applyTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  themeBtn.textContent = theme === "dark" ? "☀️" : "🌙";
+}
+
+let theme = "light";
+try {
+  theme = localStorage.getItem(THEME_KEY) ||
+    (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+} catch (e) { /* usar tema claro */ }
+applyTheme(theme);
+
+themeBtn.addEventListener("click", () => {
+  theme = theme === "dark" ? "light" : "dark";
+  applyTheme(theme);
+  try { localStorage.setItem(THEME_KEY, theme); } catch (e) { /* ignorar */ }
+});
+
 render();
