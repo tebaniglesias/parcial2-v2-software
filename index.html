@@ -32,6 +32,12 @@
       <div class="list-head">
         <h2>Inventario</h2>
         <input id="search" type="search" placeholder="Buscar...">
+        <select id="sort" aria-label="Ordenar por">
+          <option value="added">Más recientes</option>
+          <option value="name">Nombre (A-Z)</option>
+          <option value="qty-asc">Menor stock</option>
+          <option value="qty-desc">Mayor stock</option>
+        </select>
       </div>
       <ul id="list"></ul>
       <p id="empty" class="empty" hidden>No hay productos para mostrar.</p>

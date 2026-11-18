@@ -2,7 +2,7 @@ const LOW_STOCK = 5;
 const KEY = "stockcontrol-items";
 
 const $ = (id) => document.getElementById(id);
-const form = $("form"), list = $("list"), empty = $("empty"), search = $("search");
+const form = $("form"), list = $("list"), empty = $("empty"), search = $("search"), sortSel = $("sort");
 
 let items = load();
 
@@ -26,6 +26,13 @@ function save() {
 function render() {
   const q = search.value.trim().toLowerCase();
   const visible = items.filter((i) => i.name.toLowerCase().includes(q));
+  const sorters = {
+    added: (a, b) => 0,
+    name: (a, b) => a.name.localeCompare(b.name, "es"),
+    "qty-asc": (a, b) => a.qty - b.qty,
+    "qty-desc": (a, b) => b.qty - a.qty,
+  };
+  visible.sort(sorters[sortSel.value] || sorters.added);
 
   list.innerHTML = "";
   for (const item of visible) {
@@ -95,6 +102,7 @@ form.addEventListener("submit", (e) => {
 });
 
 search.addEventListener("input", render);
+sortSel.addEventListener("change", render);
 
 // Modo oscuro
 const THEME_KEY = "stockcontrol-theme";

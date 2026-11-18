@@ -96,6 +96,14 @@ button:hover { filter: brightness(1.1); }
 .list-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
 .list-head h2 { margin: 0; }
 #search { width: 180px; }
+#sort {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 1rem;
+  background: var(--card);
+  color: var(--text);
+}
 
 ul { list-style: none; margin: 16px 0 0; padding: 0; }
 li {
